@@ -56,7 +56,7 @@ class StaticServer {
 		this.started = true;
 		this.running = true;
 
-		AppState.addEventListener('change', this._handleAppStateChange.bind(this));
+		//AppState.addEventListener('change', this._handleAppStateChange.bind(this));
 
 		return FPStaticServer.start(this.port, this.root, this.localOnly);
 	}
@@ -74,26 +74,26 @@ class StaticServer {
 	kill() {
 		this.stop();
 		this.started = false;
-		AppState.addEventListener('change', this._handleAppStateChange.bind(this));
+		//AppState.addEventListener('change', this._handleAppStateChange.bind(this));
 	}
 
-	_handleAppStateChange(appState) {
-		if (!this.started) {
-			return;
-		}
+// 	_handleAppStateChange(appState) {
+// 		if (!this.started) {
+// 			return;
+// 		}
 
-		if (appState === "active" && !this.running) {
-			this.start();
-		}
+// 		if (appState === "active" && !this.running) {
+// 			this.start();
+// 		}
 
-		if (appState === "background" && this.running) {
-			this.stop();
-		}
+// 		if (appState === "background" && this.running) {
+// 			this.stop();
+// 		}
 
-		if (appState === "inactive" && this.running) {
-			this.stop();
-		}
-	}
+// 		if (appState === "inactive" && this.running) {
+// 			this.stop();
+// 		}
+// 	}
 
 
 }
